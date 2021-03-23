@@ -1,0 +1,104 @@
+# Template
+# This is a submission template. Replace the value given.
+# This template **must** be valid yml! So be careful when changing things.
+# Please keep the types consistent with the original.
+# If your submission is malformed and not easily corrected, you will
+# be notified to fix it.
+
+Offline:
+  # Up to 555 pts
+  # List the unique PGN numbers as a comma separated string. All numbers should be integers
+  SoManyMessages: "0,1,2,3"
+
+  # Up to 525 pts
+  # List all the nmea sources (in decimal as integers) and your guess for the device type.
+  # Items from the list can be used more than once. If you do not know
+  # the device type, you can leave the device type blank.
+  #
+  # If you are still unsure what this is, the Src field in the nmea packet
+  # is the value you are looking for. Make sure to list the srs as integers,
+  # rather then hex. So 0x50 is '80'.
+  # E.g: If your src byte is 0x50, list it in the yml as `80: "GPS"`
+  #
+  # Devices to choose from: (Please copy/paste the strings as provided)
+  #   "Actisense", "GPS", "ECDIS", "Auto Pilot",
+  #   "Throttle Shift", "Throttle Actuator", "Speed",
+  #   "Throttle Station", "Throttle Control Unit"
+  WhatIsThis: # Replace the examples!
+    # If you find a device with the src byte as 0x01, this is how you would list it
+    # if you believe it to be a GPS device.
+    1: "GPS"
+    # If you find a device with the src byte as 0x02, but do not know what it is, you can
+    # leave the device guess blank like this:
+    2: ""
+    # ... List the rest of the devices ...
+    # Src 1&2 are just examples. They might not be correct.
+
+
+  # Up to 370 pts
+  # List the PGN numbers (in decimal as integers) and their update interval over the nmea network.
+  # If a pgn is being sent every 200ms or at 5per second, then the interval is "200ms".
+  # You should list all the pgns you found in `SoManyMessages`.
+  #
+  # List the PGN numbers as integers, NOT hex!!
+  #
+  # !! Do not put in the frequency, put in the interval !!
+  TalkFast: # Replace the examples!
+    # pgn 100 is sent every 1s
+    100: "1s"
+    # pgn 200 is sent every 100ms (10 per second)
+    200: "100ms"
+    # ... List the rest of the pgns ...
+    # PGN numbers 100 & 200 are examples and are incorrect. PGNs 100 & 200
+    # do not even exist.
+
+  # Up to 250 pts
+  # Replace the default values with your guess to the spoofed msg/pgn on the nmea network.
+  # A spoofed message is one created by software and not from an actual nmea device.
+  SpoofedMessage:
+    # The PGN number of the messages being spoofed
+    PGNNum: 0 # Expect an integer, not hex or bytes
+    # The device type being spoofed (From the device word list in `WhatIsThis`)
+    # Put the device type the spoofer is trying to be.
+    Device: ""
+    # The Nmea source broadcasting the spoofed messages
+    Source: 0 # Expect an integer from 0-255. Convert your byte value to an integer.
+
+
+  # Up to 500 pts per Pinpoint
+
+  # Input the nmea fields for the provided messages.
+  # For the `NmeaData` field, place a description of what the nmea
+  # message is saying. For example, if the nmea message is a GPS message,
+  # say "A GPS message with lat=50.00 and long=50.00"
+  PintPoint1:
+    NmeaCmd: 0 # Expect an integer value 0-255
+    NmeaCRC: 0 # Expect an integer value 0-255
+    NmeaDst: 0 # Expect an integer value 0-255
+    NmeaSrc: 0 # Expect an integer value 0-255
+    NmeaPriority: 0 # Expect an integer value 0-255
+    NmeaPGNNum: 0 # Expect an integer value under 200.000
+    # NmeaDataDescription will go to manual review
+    NmeaDataDescription: "Describe the data in this string. Keep this a single string!"
+    NmeaDataHex: "0x00" # Expect a hex string for the nmea data
+  PintPoint2:
+    NmeaCmd: 0 # Expect an integer value 0-255
+    NmeaCRC: 0 # Expect an integer value 0-255
+    NmeaDst: 0 # Expect an integer value 0-255
+    NmeaSrc: 0 # Expect an integer value 0-255
+    NmeaPriority: 0 # Expect an integer value 0-255
+    NmeaPGNNum: 0 # Expect an integer value under 200.000
+    # NmeaDataDescription will go to manual review
+    NmeaDataDescription: "Describe the data in this string. Keep this a single string!"
+    NmeaDataHex: "0x00" # Expect a hex string for the nmea data
+  PintPoint3:
+    NmeaCmd: 0 # Expect an integer value 0-255
+    NmeaCRC: 0 # Expect an integer value 0-255
+    NmeaDst: 0 # Expect an integer value 0-255
+    NmeaSrc: 0 # Expect an integer value 0-255
+    NmeaPriority: 0 # Expect an integer value 0-255
+    NmeaPGNNum: 0 # Expect an integer value under 200.000
+    # NmeaDataDescription will go to manual review
+    NmeaDataDescription: "Describe the data in this string. Keep this a single string!"
+    NmeaDataHex: "0x00" # Expect a hex string for the nmea data
+
